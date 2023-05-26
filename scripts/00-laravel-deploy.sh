@@ -11,7 +11,7 @@ mkdir storage/framework/cache/data
 
 echo 'Running composer'
 composer global require hirak/prestissimo
-composer install --no-dev --working-dir=/var/www/html
+composer install
 
 
 
