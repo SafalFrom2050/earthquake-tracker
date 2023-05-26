@@ -9,6 +9,8 @@ mkdir storage/framework/views
 mkdir storage/framework/cache
 mkdir storage/framework/cache/data
 
+chmod -Rvc 777 storage
+
 echo 'Running composer'
 composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
