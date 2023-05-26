@@ -16,8 +16,6 @@ composer install --no-dev --working-dir=/var/www/html
 
 
 php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
 
 echo 'Caching config...'
 php artisan config:cache
