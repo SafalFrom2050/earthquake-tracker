@@ -4,10 +4,7 @@ mkdir -p storage/framework
 mkdir -p storage/framework/sessions
 mkdir -p storage/framework/views
 mkdir -p storage/framework/cache
-
-chmod -R gu+w storage
-
-chmod -R guo+w storage
+mkdir -p storage/framework/cache/data
 
 
 echo 'Running composer'
