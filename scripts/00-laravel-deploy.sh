@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+ls
 
 echo 'Running composer'
-composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
 
-ls
-#mkdir /storage/framework/{sessions,views,cache}
+mkdir -p storage/framework
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/views
+mkdir -p storage/framework/cache
 
 
 
