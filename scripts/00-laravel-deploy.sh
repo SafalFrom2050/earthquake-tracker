@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
-ls
-
-echo 'Running composer'
-composer install --no-dev --working-dir=/var/www/html
-
 mkdir -p storage/framework
 mkdir -p storage/framework/sessions
 mkdir -p storage/framework/views
 mkdir -p storage/framework/cache
+
+chmod -R gu+w storage
+
+chmod -R guo+w storage
+
+
+echo 'Running composer'
+composer install --no-dev --working-dir=/var/www/html
 
 
 
