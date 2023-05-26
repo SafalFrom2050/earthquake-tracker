@@ -11,11 +11,8 @@ mkdir storage/framework/cache/data
 
 echo 'Running composer'
 composer global require hirak/prestissimo
-composer install
+composer install --no-dev --working-dir=/var/www/html
 
-
-
-php artisan cache:clear
 
 echo 'Caching config...'
 php artisan config:cache
