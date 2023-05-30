@@ -26,10 +26,17 @@ Route::get('/earthquake', [\App\Http\Controllers\EarthquakeController::class, 'i
     ->middleware(['auth', 'verified'])->name('earthquake.index');
 Route::get('/earthquake/create', [\App\Http\Controllers\EarthquakeController::class, 'create'])
     ->middleware(['auth', 'verified'])->name('earthquake.create');
+Route::get('/earthquake/{earthquake}', [\App\Http\Controllers\EarthquakeController::class, 'show'])
+    ->middleware(['auth', 'verified'])->name('earthquake.show');
+
 Route::post('/earthquake/store', [\App\Http\Controllers\EarthquakeController::class, 'store'])
     ->middleware(['auth', 'verified'])->name('earthquake.store');
-Route::delete('/earthquake/', [\App\Http\Controllers\EarthquakeController::class, 'destroy'])
+
+Route::delete('/earthquake/{earthquake}', [\App\Http\Controllers\EarthquakeController::class, 'destroy'])
     ->middleware(['auth', 'verified'])->name('earthquake.destroy');
+
+Route::patch('/earthquake/{earthquake}', [\App\Http\Controllers\EarthquakeController::class, 'update'])
+    ->middleware(['auth', 'verified'])->name('earthquake.update');
 
 
 

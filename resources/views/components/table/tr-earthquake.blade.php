@@ -71,8 +71,7 @@
 
 
     <td class="px-7 2xl:px-0 group">
-        <button onclick="dropdownFunction(this)"
-                class="w-5 group-focus:ring-2 rounded-md focus:outline-none ml-7"
+        <button class="w-5 group-focus:ring-2 rounded-md focus:outline-none ml-7"
                 role="button" aria-label="options">
             <img class="w-5"
                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg"
@@ -80,14 +79,21 @@
         </button>
         <div
             class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden group-active:block group-focus:block group-hover:block">
-            <div tabindex="0"
-                 class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                <p>Edit</p>
-            </div>
-            <div tabindex="0"
-                 class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                <p>Delete</p>
-            </div>
+            <a href="{{route('earthquake.show', $earthquake->id)}}">
+                <button tabindex="0"
+                     class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                    <p>Edit</p>
+                </button>
+            </a>
+            <form method="post" action="{{route('earthquake.destroy', $earthquake->id)}}">
+                @method('DELETE')
+                @csrf
+                    <button type="submit" tabindex="0"
+                         class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                        <p>Delete</p>
+                    </button>
+            </form>
+
         </div>
     </td>
 </tr>

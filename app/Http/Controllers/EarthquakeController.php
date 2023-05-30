@@ -24,21 +24,27 @@ class EarthquakeController extends Controller
 
     public function show(Earthquake $earthquake)
     {
-        return $earthquake;
+        $values = $earthquake;
+//        dd($values);
+        return view('earthquakes.edit', compact('values'));
     }
 
     public function update(EarthquakeRequest $request, Earthquake $earthquake)
     {
         $earthquake->update($request->validated());
 
-        return $earthquake;
+        $request->session()->flash('status', 'Successfully edited!');
+
+        return redirect()->route('earthquake.index');
     }
 
     public function destroy(Earthquake $earthquake)
     {
         $earthquake->delete();
 
-        return response()->json();
+        request()->session()->flash('status', 'Successfully deleted!');
+
+        return redirect()->route('earthquake.index');
     }
 
 
